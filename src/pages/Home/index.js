@@ -30,13 +30,14 @@ const Home = () => {
   return (
     <>
       <Links />
-      <main className={styles.home}>
+      <main>
+        <h1 className={styles.heading}>Knowledge Base</h1>
         {loading ? (
           <h1>Loading</h1>
         ) : error ? (
           <h1>Something Went Wrong!</h1>
         ) : (
-          <>
+          <div className={styles.cardList}>
             {data?.map(({ id, title, description, thumbnail }) => (
               <Card
                 key={id}
@@ -45,7 +46,7 @@ const Home = () => {
                 description={description}
               />
             ))}
-          </>
+          </div>
         )}
       </main>
     </>
